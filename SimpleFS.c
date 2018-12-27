@@ -976,12 +976,10 @@ void my_exitsys() {
   
   memcpy(blockaddr[0], &initblock, sizeof(initblock));
   memcpy(blockaddr[1], fat1, sizeof(fat1));
-  memcpy(blockaddr[3], fat1, sizeof(fat1));
+  memcpy(blockaddr[3], fat2, sizeof(fat2));
   FILE *fp = fopen("myfsys", "wb");
 
-#ifndef DEBUG_DONT_SAVEFILE
-  fwrite(myvhard, BLOCKSIZE, BLOCKNUM, fp);
-#endif // DEBUG_DONT_SAVEFILE
+
 
   free(myvhard);
   fclose(fp);
